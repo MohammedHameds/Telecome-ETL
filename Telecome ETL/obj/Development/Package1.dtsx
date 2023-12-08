@@ -1,0 +1,1211 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/7/2023 10:56:26 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-A1JJMND"
+  DTS:CreatorName="DESKTOP-A1JJMND\Mohammed"
+  DTS:DTSID="{E58CD19A-BFE1-4F03-B015-BB928FD09EB2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{2BB32646-0FB2-43B0-AB3E-5D9316CB0DFD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{882189EF-33E6-4EA1-AB9C-3C5B142DE50C}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x007C_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\SummerSlam\BI\Telecome ETL Case Study\Source File\batch 0\01. Clean Data.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="id"
+              DTS:DTSID="{50E62301-C7BC-4A28-B97E-13864D57C766}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="9"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="imsi"
+              DTS:DTSID="{8AA49A30-F7DB-49A8-A5D5-31881FF14AEF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="14"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="imei"
+              DTS:DTSID="{596BB531-9B2A-4DF1-927F-84FD33E283AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cell"
+              DTS:DTSID="{7D80AA03-4107-4B9A-8F09-35AF8F5E8A41}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lac"
+              DTS:DTSID="{1FE1F232-2A5C-4AB8-9E5A-A3054663751A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="event_type"
+              DTS:DTSID="{289F959E-6E60-47A7-98FD-DE18F5C8177E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="event_ts"
+              DTS:DTSID="{8816426C-7935-41F6-8D25-AC04FFE4E42F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{AB636E75-64B8-4A84-AC45-28A4A701B52A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\DVR - Replace Subscriber ID Nulls"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DVR - Replace Subscriber ID Nulls"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DVR - Replace Subscriber ID Nulls.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DVR - Replace Subscriber ID Nulls.Inputs[Derived Column Input].Columns[subscriber_id]"
+                      cachedDataType="i4"
+                      cachedName="subscriber_id"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\LKP - Subscriber ID.Outputs[Lookup Match Output].Columns[subscriber_id]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\LKP - Subscriber ID.Outputs[Lookup Match Output].Columns[subscriber_id]}) ? -99999 : #{Package\Data Flow Task\LKP - Subscriber ID.Outputs[Lookup Match Output].Columns[subscriber_id]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(subscriber_id) ? -99999 : subscriber_id</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DVR - Replace Subscriber ID Nulls.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\DVR - Replace Subscriber ID Nulls.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\DVR - Replace Subscriber ID Nulls.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\DVR - Replace Subscriber ID Nulls.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DVR - Replace Subscriber ID Nulls.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DVR - Replace Subscriber ID Nulls.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DVR - Replace Subscriber ID Nulls.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DVR - Replace Subscriber ID Nulls.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\FF - Source Read Transactions"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="FF - Source Read Transactions"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\FF - Source Read Transactions.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].ExternalColumns[id]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[imsi]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].ExternalColumns[imsi]"
+                      length="9"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[imsi]"
+                      name="imsi"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[imei]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].ExternalColumns[imei]"
+                      length="14"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[imei]"
+                      name="imei"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[cell]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].ExternalColumns[cell]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[cell]"
+                      name="cell"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[lac]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].ExternalColumns[lac]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[lac]"
+                      name="lac"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[event_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].ExternalColumns[event_type]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[event_type]"
+                      name="event_type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[event_ts]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].ExternalColumns[event_ts]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[event_ts]"
+                      name="event_ts"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].ExternalColumns[imsi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="imsi" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].ExternalColumns[imei]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="imei" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].ExternalColumns[cell]"
+                      dataType="i4"
+                      name="cell" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].ExternalColumns[lac]"
+                      dataType="i4"
+                      name="lac" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].ExternalColumns[event_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="event_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].ExternalColumns[event_ts]"
+                      dataType="date"
+                      name="event_ts" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\LKP - Subscriber ID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP - Subscriber ID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dim_imsi_reference]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dim_imsi_reference]) [refTable]
+where [refTable].[imsi] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="imsi" dataType="DT_STR" length="9" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="subscriber_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[imsi]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\LKP - Subscriber ID.Connections[OleDbConnection]"
+                  connectionManagerID="{BAFE093C-8618-4F09-99C9-DF0C8D24CC23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destination]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\LKP - Subscriber ID.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\LKP - Subscriber ID.Inputs[Lookup Input].Columns[imsi]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="imsi"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[imsi]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">imsi</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\LKP - Subscriber ID.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\LKP - Subscriber ID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP - Subscriber ID.Outputs[Lookup Match Output].Columns[subscriber_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\LKP - Subscriber ID.Outputs[Lookup Match Output].Columns[subscriber_id]"
+                      name="subscriber_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">subscriber_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\LKP - Subscriber ID.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\LKP - Subscriber ID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\LKP - Subscriber ID.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\LKP - Subscriber ID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP - Subscriber ID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\LKP - Subscriber ID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP - Subscriber ID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\LKP - Subscriber ID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB -  Destination Load Transactions"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[fact_transaction]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Connections[OleDbConnection]"
+                  connectionManagerID="{BAFE093C-8618-4F09-99C9-DF0C8D24CC23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destination]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].Columns[imsi]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="imsi"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[imsi]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[imsi]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].Columns[imei]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="imei"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[imei]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[imei]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].Columns[cell]"
+                      cachedDataType="i4"
+                      cachedName="cell"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[cell]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[cell]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].Columns[lac]"
+                      cachedDataType="i4"
+                      cachedName="lac"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[lac]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[lac]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].Columns[event_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="event_type"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[event_type]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[event_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].Columns[event_ts]"
+                      cachedDataType="date"
+                      cachedName="event_ts"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[event_ts]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[event_ts]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[transaction_id]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].Columns[subscriber_id]"
+                      cachedDataType="i4"
+                      cachedName="subscriber_id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[subscriber_id]"
+                      lineageId="Package\Data Flow Task\LKP - Subscriber ID.Outputs[Lookup Match Output].Columns[subscriber_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[transaction_id]"
+                      dataType="i4"
+                      name="transaction_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[imsi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="imsi" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[subscriber_id]"
+                      dataType="i4"
+                      name="subscriber_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[tac]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="tac" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[snr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="snr" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[imei]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="imei" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[cell]"
+                      dataType="i4"
+                      name="cell" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[lac]"
+                      dataType="i4"
+                      name="lac" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[event_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="event_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[event_ts]"
+                      dataType="dbTimeStamp"
+                      name="event_ts" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input].ExternalColumns[audit_id]"
+                      dataType="i4"
+                      name="audit_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB - Error Destination Outputs"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB - Error Destination Outputs"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[error_destination_output]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Connections[OleDbConnection]"
+                  connectionManagerID="{BAFE093C-8618-4F09-99C9-DF0C8D24CC23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destination]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].Columns[imsi]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="imsi"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[imsi]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[imsi]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].Columns[imei]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="imei"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[imei]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[imei]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].Columns[cell]"
+                      cachedDataType="i4"
+                      cachedName="cell"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[cell]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[cell]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].Columns[lac]"
+                      cachedDataType="i4"
+                      cachedName="lac"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[lac]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[lac]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].Columns[event_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="event_type"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[event_type]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[event_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].Columns[event_ts]"
+                      cachedDataType="date"
+                      cachedName="event_ts"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[event_ts]"
+                      lineageId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output].Columns[event_ts]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[imsi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="imsi" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[imei]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="imei" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[cell]"
+                      dataType="i4"
+                      name="cell" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[lac]"
+                      dataType="i4"
+                      name="lac" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[event_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="event_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[event_ts]"
+                      dataType="dbTimeStamp"
+                      name="event_ts" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[tac]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="tac" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[snr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="snr" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\DVR - Replace Subscriber ID Nulls.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task\LKP - Subscriber ID.Inputs[Lookup Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task\FF - Source Read Transactions.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
+              endId="Package\Data Flow Task\DVR - Replace Subscriber ID Nulls.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\LKP - Subscriber ID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Destination Error Output]"
+              endId="Package\Data Flow Task\OLE DB - Error Destination Outputs.Inputs[OLE DB Destination Input]"
+              name="OLE DB Destination Error Output"
+              startId="Package\Data Flow Task\OLE DB -  Destination Load Transactions.Outputs[OLE DB Destination Error Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="291,141" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="280,42"
+          Id="Package\Data Flow Task\OLE DB -  Destination Load Transactions"
+          TopLeft="60,313" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\Data Flow Task\FF - Source Read Transactions"
+          TopLeft="66,60" />
+        <NodeLayout
+          Size="253,42"
+          Id="Package\Data Flow Task\OLE DB - Error Destination Outputs"
+          TopLeft="79,411" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Data Flow Task\LKP - Subscriber ID"
+          TopLeft="103,157" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\Data Flow Task\DVR - Replace Subscriber ID Nulls"
+          TopLeft="66,250" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Destination Error Output]"
+          TopLeft="202.75,355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-73.20890625,18.533203125,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="182,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,55"
+              Start="0,0"
+              End="9,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5"
+                    Point2="0,27.5"
+                    Point3="4,27.5" />
+                  <mssgle:LineSegment
+                    End="5,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,27.5"
+                    Point2="9,27.5"
+                    Point3="9,31.5" />
+                  <mssgle:LineSegment
+                    End="9,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="190.75,199">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,15.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="315,271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-115,42"
+              Start="0,0"
+              End="-115,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-111,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-111,0"
+                    Point2="-115,0"
+                    Point3="-115,4" />
+                  <mssgle:LineSegment
+                    End="-115,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
